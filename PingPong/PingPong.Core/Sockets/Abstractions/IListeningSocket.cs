@@ -1,7 +1,7 @@
 ﻿
 namespace Core.Sockets.Abstractions
 {
-    public interface ListeningSocketBase
+    public interface IListeningSocket
     {
         void Bind();
         void Listen();
