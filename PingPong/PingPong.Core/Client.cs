@@ -5,13 +5,13 @@ namespace Core
 {
     public class Client
     {
-        public IPEndPoint _endPoint { get; }
-        public  SocketBase _socket;
+        public IPEndPoint EndPoint { get; }
+        public  SocketBase Socket;
 
         public Client(IPEndPoint endPoint, SocketBase socket)
         {
-            _endPoint = endPoint;
-            _socket = socket;
+            EndPoint = endPoint;
+            Socket = socket;
         }
     }
 }
