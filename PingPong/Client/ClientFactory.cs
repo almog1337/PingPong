@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace PingPongClient
 {
-    public class Bootstraper
+    public class ClientFactory
     {
         public Client CreateClient(string[] args)
         {
