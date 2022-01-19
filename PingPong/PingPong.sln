@@ -5,7 +5,10 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "PingPong.Core\Core.csproj", "{1515C000-33FA-433C-96D9-E9D5C126D048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{950892CC-16B7-4FAC-B990-7676A7AD4C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingPongClient", "Client\PingPongClient.csproj", "{DF4F4EC6-0118-4BFB-BACA-87789495644D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1515C000-33FA-433C-96D9-E9D5C126D048} = {1515C000-33FA-433C-96D9-E9D5C126D048}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +20,10 @@ Global
 		{1515C000-33FA-433C-96D9-E9D5C126D048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1515C000-33FA-433C-96D9-E9D5C126D048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1515C000-33FA-433C-96D9-E9D5C126D048}.Release|Any CPU.Build.0 = Release|Any CPU
-		{950892CC-16B7-4FAC-B990-7676A7AD4C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{950892CC-16B7-4FAC-B990-7676A7AD4C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{950892CC-16B7-4FAC-B990-7676A7AD4C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{950892CC-16B7-4FAC-B990-7676A7AD4C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF4F4EC6-0118-4BFB-BACA-87789495644D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF4F4EC6-0118-4BFB-BACA-87789495644D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF4F4EC6-0118-4BFB-BACA-87789495644D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF4F4EC6-0118-4BFB-BACA-87789495644D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
