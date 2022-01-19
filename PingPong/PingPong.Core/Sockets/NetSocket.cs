@@ -15,6 +15,11 @@ namespace Core.Sockets
             _socket.Connect(iPEndPoint);
         }
 
+        public NetSocket(Socket socket)
+        {
+            _socket = socket;
+        }
+
         public override void Send(byte[] data)
         {
             _socket.Send(data);
