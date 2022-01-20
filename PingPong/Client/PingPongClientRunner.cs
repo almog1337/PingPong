@@ -45,6 +45,9 @@ namespace PingPongClient
 
                     _socket.Send(clientMessage);
                     serverMessage = _socket.Receive();
+
+                    _userOutput.Send(_stringToByteArrayConverter.Convert("Server message: "));
+                    _userOutput.Send(serverMessage);
                 }
             }
             catch(Exception e)
