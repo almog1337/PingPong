@@ -22,8 +22,10 @@ namespace PingPongServer
                     return;
                 }
 
-                NetListeningSocket socket = new NetListeningSocket(SocketType.Stream, ProtocolType.Tcp, iPEndPoint);
-                var server = new Server(socket, iPEndPoint);
+                var socket = new NetListeningSocket(SocketType.Stream, ProtocolType.Tcp, iPEndPoint);
+                var netTcpListener = new NetTcpListener(iPEndPoint);
+
+                var server = new Server(netTcpListener, iPEndPoint);
 
                 var converter = new ByteArrayToStringConverter();
                 var pingPongServerRunner = new PingPongServerRunner(server, converter);
