@@ -18,7 +18,7 @@ namespace PingPongClient
 
                 if (!IpParsed)
                 {
-                    System.Console.WriteLine("Given endpoint couldn't be parsed");
+                    Console.WriteLine("Given endpoint couldn't be parsed");
                     return;
                 }
 
