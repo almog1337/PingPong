@@ -13,6 +13,13 @@ namespace PingPongServer
         private IInput _input;
         private ByteArrayToStringConverter _byteArrayToStringConverter;
 
+        public PingPongServerRunner(Server server, IInput input, ByteArrayToStringConverter byteArrayToStringConverter)
+        {
+            _server = server;
+            _input = input;
+            _byteArrayToStringConverter = byteArrayToStringConverter;
+        }
+
         public void Run()
         {
             try
