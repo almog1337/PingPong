@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Core.Clients.Abstractions
 {
-    public class ClientBase
+    public abstract class ClientBase
     {
         public IPEndPoint EndPoint { get; }
         public SocketBase Socket;
