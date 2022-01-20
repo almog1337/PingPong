@@ -1,13 +1,12 @@
-﻿using Core;
-using Core.Sockets;
+﻿using Core.Sockets;
 using System.Net;
 using System.Net.Sockets;
 
-namespace PingPongClient
+namespace Core.Factories
 {
     public class ClientFactory
     {
-        public Client CreateClient(string ipEndPoint, SocketType socketType, ProtocolType protocolType)
+        public Client CreateNetClient(string ipEndPoint, SocketType socketType, ProtocolType protocolType)
         {
             IPEndPoint iPEndPoint;
             IPEndPoint.TryParse(ipEndPoint, out iPEndPoint);
