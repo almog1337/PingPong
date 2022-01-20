@@ -6,9 +6,9 @@ namespace Core
     public class Server
     {
         public IPEndPoint EndPoint { get; }
-        public IListeningSocket ListeningSocket;
+        public IBindableListeningSocket ListeningSocket;
 
-        public Server(IListeningSocket listeningSocket, IPEndPoint iPEndPoint)
+        public Server(IBindableListeningSocket listeningSocket, IPEndPoint iPEndPoint)
         {
             EndPoint = iPEndPoint;
             ListeningSocket = listeningSocket;
