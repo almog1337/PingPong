@@ -1,14 +1,14 @@
 ﻿using Core.Sockets;
 using System.Net;
 
-namespace Core
+namespace Core.Clients.Abstractions
 {
-    public class Client
+    public class ClientBase
     {
         public IPEndPoint EndPoint { get; }
-        public  SocketBase Socket;
+        public SocketBase Socket;
 
-        public Client(IPEndPoint endPoint, SocketBase socket)
+        protected ClientBase(IPEndPoint endPoint, SocketBase socket)
         {
             EndPoint = endPoint;
             Socket = socket;
