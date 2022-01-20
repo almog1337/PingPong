@@ -23,11 +23,12 @@ namespace PingPongClient
                 }
 
                 NetSocket netSocket = new NetSocket(SocketType.Stream, ProtocolType.Tcp, iPEndPoint);
+                NetTcpClient netTcpClient = new NetTcpClient(iPEndPoint);
 
                 var consoleInput = new ConsoleInput();
                 var consoleOutput = new ConsoleOutput();
 
-                var pingPongRunner = new PingPongClientRunner(netSocket, consoleInput, consoleOutput);
+                var pingPongRunner = new PingPongClientRunner(netTcpClient, consoleInput, consoleOutput);
                 pingPongRunner.Run();
             }
             catch (Exception e)

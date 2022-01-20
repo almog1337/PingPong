@@ -6,21 +6,30 @@ namespace Core.Sockets
     public class NetTcpClient : SocketBase
     {
         private TcpClient _tcpClient;
-        private IPEndPoint _iPEndPoint;
+        private IPEndPoint _ipEndPoint;
         private NetworkStream _networkStream;
+        private int _receiveLenth;
 
         public int ReceiveLenth 
         { 
-            get { return ReceiveLenth; }
+            get { return _receiveLenth; }
             set
             {
-                ReceiveLenth = value > 0 && value < 4096 ? value : ReceiveLenth;
+                if(value > 0 && value < 4096)
+                {
+                    _receiveLenth = value;
+                }
+                else
+                {
+                    _receiveLenth = 1024;
+                }
             }
         }
-        public NetTcpClient(IPEndPoint iPEndPoint)
+        public NetTcpClient(IPEndPoint iPEndPoint, int receiveLenth = 1024)
         {
             _tcpClient = new TcpClient();
-            _iPEndPoint = iPEndPoint;
+            _ipEndPoint = iPEndPoint;
+            _receiveLenth = receiveLenth;
         }
 
         public override void Close()
@@ -30,7 +39,7 @@ namespace Core.Sockets
 
         public override void Connect()
         {
-            _tcpClient.Connect(_iPEndPoint);
+            _tcpClient.Connect(_ipEndPoint);
             _networkStream = _tcpClient.GetStream();
         }
 
