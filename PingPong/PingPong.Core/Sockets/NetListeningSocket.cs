@@ -30,5 +30,10 @@ namespace Core.Sockets
             var sock = _socket.Accept();
             return new NetSocket(sock);
         }
+
+        public void Close()
+        {
+            _socket.Close();
+        }
     }
 }

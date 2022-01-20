@@ -6,5 +6,6 @@ namespace Core.Sockets.Abstractions
         void Bind();
         void Listen();
         SocketBase Accept();
+        void Close();
     }
 }
