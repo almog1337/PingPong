@@ -8,22 +8,18 @@ namespace Core.Sockets
         private TcpListener _tcpListener;
         public SocketBase Accept()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Bind()
-        {
-            throw new System.NotImplementedException();
+            var tcpClient = _tcpListener.AcceptTcpClient();
+            return new NetTcpClient(tcpClient);
         }
 
         public void Close()
         {
-            throw new System.NotImplementedException();
+            _tcpListener.Stop();
         }
 
         public void Listen()
         {
-            throw new System.NotImplementedException();
+            _tcpListener.Start();
         }
     }
 }
