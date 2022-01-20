@@ -7,10 +7,10 @@ namespace PingPongClient
 {
     public class ClientFactory
     {
-        public Client CreateClient(string[] args)
+        public Client CreateClient(string ipEndPoint)
         {
             IPEndPoint iPEndPoint;
-            IPEndPoint.TryParse(args[0], out iPEndPoint);
+            IPEndPoint.TryParse(ipEndPoint, out iPEndPoint);
 
             NetSocket netSocket = new NetSocket(SocketType.Stream, ProtocolType.Tcp, iPEndPoint);
 
