@@ -10,13 +10,11 @@ namespace PingPongServer
     public class PingPongServerRunner
     {
         private Server _server;
-        private IInput _input;
         private ByteArrayToStringConverter _byteArrayToStringConverter;
 
-        public PingPongServerRunner(Server server, IInput input, ByteArrayToStringConverter byteArrayToStringConverter)
+        public PingPongServerRunner(Server server, ByteArrayToStringConverter byteArrayToStringConverter)
         {
             _server = server;
-            _input = input;
             _byteArrayToStringConverter = byteArrayToStringConverter;
         }
 
