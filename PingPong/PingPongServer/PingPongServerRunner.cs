@@ -22,7 +22,6 @@ namespace PingPongServer
         {
             try
             {
-                _server.ListeningSocket.Bind();
                 _server.ListeningSocket.Listen();
                 while (true)
                 {

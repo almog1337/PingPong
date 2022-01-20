@@ -4,7 +4,7 @@ using Core.Sockets.Abstractions;
 
 namespace Core.Sockets
 {
-    public class NetListeningSocket : IBindableListeningSocket
+    public class NetListeningSocket : IListeningSocket
     {
         private Socket _socket;
         private IPEndPoint _bindEndPoint;
@@ -15,13 +15,9 @@ namespace Core.Sockets
             _bindEndPoint = iPEndPoint;
         }
 
-        public void Bind()
-        {
-            _socket.Bind(_bindEndPoint);
-        }
-
         public void Listen()
         {
+            _socket.Bind(_bindEndPoint);
             _socket.Listen();
         }
 
