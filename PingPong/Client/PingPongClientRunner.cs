@@ -2,21 +2,22 @@
 using Core.Converters;
 using Core.Input.Abstractions;
 using Core.Output.Abstractions;
+using Core.Sockets;
 using System;
 
 namespace PingPongClient
 {
     public class PingPongClientRunner
     {
-        private Client _client;
+        private SocketBase _socket;
         private IInput _userInput;
         private IOutput _userOutput;
         private StringToByteArrayConverter _stringToByteArrayConverter;
         private ByteArrayToStringConverter _byteArrayToStringConverter;
 
-        public PingPongClientRunner(Client client, IInput userInput, IOutput userOutput)
+        public PingPongClientRunner(SocketBase socket, IInput userInput, IOutput userOutput)
         {
-            _client = client;
+            _socket = socket;
             _userInput = userInput;
             _userOutput = userOutput;
         }
@@ -28,9 +29,9 @@ namespace PingPongClient
                 bool run = true;
                 byte[] clientMessage;
                 byte[] serverMessage;
-                _client.Socket.Connect();
+                _socket.Connect();
 
-                while (_client.Socket.Connected() && run)
+                while (_socket.Connected() && run)
                 {
                     _userOutput.Send(_stringToByteArrayConverter.Convert("Enter Message (Exit to stop): "));
                     clientMessage = _userInput.Receive();
@@ -40,8 +41,8 @@ namespace PingPongClient
                         run = false;
                     }
 
-                    _client.Socket.Send(clientMessage);
-                    serverMessage = _client.Socket.Receive();
+                    _socket.Send(clientMessage);
+                    serverMessage = _socket.Receive();
                 }
             }
             catch(Exception e)
@@ -50,7 +51,7 @@ namespace PingPongClient
             }
             finally
             {
-                _client.Socket.Close();
+                _socket.Close();
             }
         }
     }

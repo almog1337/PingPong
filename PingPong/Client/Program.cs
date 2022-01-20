@@ -5,7 +5,7 @@ namespace PingPongClient
     {
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
