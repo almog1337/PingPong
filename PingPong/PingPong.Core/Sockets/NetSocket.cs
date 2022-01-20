@@ -8,11 +8,12 @@ namespace Core.Sockets
     public class NetSocket : SocketBase
     {
         private Socket _socket;
+        private IPEndPoint _iPEndPoint;
 
         public NetSocket(SocketType socketType, ProtocolType protocolType, IPEndPoint iPEndPoint)
         {
             _socket = new Socket(socketType, protocolType);
-            _socket.Connect(iPEndPoint);
+            _iPEndPoint = iPEndPoint;
         }
 
         public NetSocket(Socket socket)
@@ -30,6 +31,16 @@ namespace Core.Sockets
             byte[] data = new byte[1024];
             _socket.Receive(data);
             return data;
+        }
+
+        public override void Connect()
+        {
+            _socket.Connect(_iPEndPoint);
+        }
+
+        public override void Close()
+        {
+            _socket.Close();
         }
     }
 }
