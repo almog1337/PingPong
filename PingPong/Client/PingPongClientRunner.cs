@@ -49,7 +49,7 @@ namespace PingPongClient
             }
             catch(Exception e)
             {
-                
+                throw;
             }
             finally
             {
