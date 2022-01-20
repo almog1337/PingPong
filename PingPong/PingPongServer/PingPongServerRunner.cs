@@ -32,7 +32,7 @@ namespace PingPongServer
             }
             catch(Exception e)
             {
-
+                throw;
             }
             finally
             {
