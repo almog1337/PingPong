@@ -38,7 +38,7 @@ namespace PingPongClient
                     _userOutput.Send(_stringToByteArrayConverter.Convert("Enter Message (Exit to stop): "));
                     clientMessage = _userInput.Receive();
 
-                    if(_byteArrayToStringConverter.Convert(clientMessage) != "Exit")
+                    if(_byteArrayToStringConverter.Convert(clientMessage) == "Exit")
                     {
                         run = false;
                     }
