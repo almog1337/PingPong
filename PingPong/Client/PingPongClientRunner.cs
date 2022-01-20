@@ -20,6 +20,8 @@ namespace PingPongClient
             _socket = socket;
             _userInput = userInput;
             _userOutput = userOutput;
+            _stringToByteArrayConverter = new StringToByteArrayConverter();
+            _byteArrayToStringConverter = new ByteArrayToStringConverter();
         }
 
         public void Run()
