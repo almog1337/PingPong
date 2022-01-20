@@ -4,7 +4,7 @@ using Core.Sockets.Abstractions;
 
 namespace Core.Sockets
 {
-    public class NetListeningSocket : IListeningSocket
+    public class NetListeningSocket : IBindableListeningSocket
     {
         private Socket _socket;
         private IPEndPoint _bindEndPoint;
