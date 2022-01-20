@@ -42,11 +42,22 @@ namespace PingPongServer
 
         private void HandleClient(SocketBase socket)
         {
-            byte[] messsage = new byte[1];
-            while(_byteArrayToStringConverter.Convert(messsage) != "Exit")
+            try
             {
-                messsage = socket.Receive();
-                socket.Send(messsage);
+                byte[] messsage = new byte[1];
+                while (_byteArrayToStringConverter.Convert(messsage) != "Exit")
+                {
+                    messsage = socket.Receive();
+                    socket.Send(messsage);
+                }
+            }
+            catch(Exception e)
+            {
+                
+            }
+            finally
+            {
+                socket.Close();
             }
         }
     }
