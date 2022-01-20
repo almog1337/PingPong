@@ -12,7 +12,7 @@ namespace Core.Sockets
         public NetListeningSocket(SocketType socketType, ProtocolType protocolType, IPEndPoint iPEndPoint)
         {
             _socket = new Socket(socketType, protocolType);
-            
+            _bindEndPoint = iPEndPoint;
         }
 
         public void Bind()
