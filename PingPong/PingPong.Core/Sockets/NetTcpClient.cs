@@ -25,11 +25,19 @@ namespace Core.Sockets
                 }
             }
         }
+
         public NetTcpClient(IPEndPoint iPEndPoint, int receiveLenth = 1024)
         {
             _tcpClient = new TcpClient();
             _ipEndPoint = iPEndPoint;
             _receiveLenth = receiveLenth;
+        }
+
+        public NetTcpClient(TcpClient tcpClient, int receiveLenth = 1024)
+        {
+            _tcpClient = tcpClient;
+            _receiveLenth = receiveLenth;
+            _ipEndPoint = (IPEndPoint)_tcpClient.Client.RemoteEndPoint;
         }
 
         public override void Close()
