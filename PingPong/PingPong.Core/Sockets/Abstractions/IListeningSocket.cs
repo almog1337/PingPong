@@ -1,9 +1,8 @@
 ﻿
 namespace Core.Sockets.Abstractions
 {
-    public interface IListeningSocket
+    public interface IListeningSocket : IBindable
     {
-        void Bind();
         void Listen();
         SocketBase Accept();
         void Close();
