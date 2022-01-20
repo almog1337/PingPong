@@ -7,7 +7,6 @@ namespace Core.Sockets
     {
         private TcpClient _tcpClient;
         private IPEndPoint _ipEndPoint;
-        private NetworkStream _networkStream;
         private int _receiveLenth;
 
         public int ReceiveLenth 
@@ -48,7 +47,6 @@ namespace Core.Sockets
         public override void Connect()
         {
             _tcpClient.Connect(_ipEndPoint);
-            _networkStream = _tcpClient.GetStream();
         }
 
         public override bool Connected()
@@ -59,14 +57,13 @@ namespace Core.Sockets
         public override byte[] Receive()
         {
             byte[] data = new byte[ReceiveLenth];
-            _networkStream.Read(data, 0, ReceiveLenth);
+            _tcpClient.GetStream().Read(data, 0, ReceiveLenth);
             return data;
         }
 
         public override void Send(byte[] data)
         {
-            var networkStream = _tcpClient.GetStream();
-            _networkStream.Write(data, 0, data.Length);
+            _tcpClient.GetStream().Write(data, 0, data.Length);
         }
     }
 }
