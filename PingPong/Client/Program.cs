@@ -14,7 +14,7 @@ namespace PingPongClient
             try
             {
                 IPEndPoint iPEndPoint;
-                var IpParsed = IPEndPoint.TryParse("127.0.0.1:1337", out iPEndPoint);
+                var IpParsed = IPEndPoint.TryParse(args[0], out iPEndPoint);
 
                 if (!IpParsed)
                 {
