@@ -9,5 +9,6 @@ namespace Core.Sockets
         public abstract void Send(byte[] data);
         public abstract byte[] Receive();
         public abstract void Close();
+        public abstract bool Connected();
     }
 }

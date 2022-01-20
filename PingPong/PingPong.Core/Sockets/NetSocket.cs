@@ -42,5 +42,10 @@ namespace Core.Sockets
         {
             _socket.Close();
         }
+
+        public override bool Connected()
+        {
+            return _socket.Connected;
+        }
     }
 }
